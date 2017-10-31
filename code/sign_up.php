@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Sign up</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,7 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="home_page.php">Home</a></li>
+        <li ><a href="home_page_guest.php">Home</a></li>
       </ul>
 	  
 	  <ul class="nav navbar-nav navbar-right">
@@ -87,20 +87,7 @@
 		$address = $_POST['addr'];
 		
 		//-- check null
-		if($name == null) 
-			echo 'Notifies: Truong name trong, moi nhap lai ! ';
-		else if($pass == null) 
-			echo 'Notifies: Truong password trong, moi nhap lai ! ';
-		else if($cfpass == null || $pass != $cfpass) 
-			echo 'Notifies: Truong confirm password trong hoac khong dung, moi nhap lai ! ';
-		else if($email == null) 
-			echo 'Notifies: Truong mail chong, moi nhap lai ! ';
-		else if($address == null) 
-			echo 'Notifies: Truong dia chi chong, moi nhap lai ! ';
-		else if($phone == null) 
-			echo 'Notifies: Truong phone number chong, moi nhap lai ! ';
-		else echo 'thanh cong!';
-
+		include 'check_null_signup.php';
 	}
 ?>
 </center>

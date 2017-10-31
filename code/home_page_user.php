@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>home page user</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -54,17 +54,26 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active" ><a href="#"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
         <li><a href="#">null</a></li>
       </ul>
-	  
-	  <ul class="nav navbar-nav navbar-right">
-        <li><a href="sign_up.php"><span class="glyphicon glyphicon-log-in"></span> Signup</a></li>
+	     
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
       </ul>
-	  
+
+	    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+      </ul>
+
+	   <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
+
 	  
     </div>
   </div>
