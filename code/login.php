@@ -25,7 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a href="home_page_guest.php">Home</a></li>
+        <li ><a href="home_page_guest.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       </ul>
 	  
 	  <ul class="nav navbar-nav navbar-right">
@@ -40,7 +40,7 @@
 - form sign up ...
 -->
 <div class="container">
-  <h2>Form SignUp</h2>
+  <h2>Form Login</h2>
   <form action="login.php" method="POST">
   <div class="form-group">
       <label for="userName">Name:</label>
