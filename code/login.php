@@ -63,17 +63,18 @@
 
 <!--Code php-->
 <center>
-<?php
-	if(isset($_POST['submit'])){
-		
-		$name = $_POST['userName'];
-		$pass = $_POST['pwd'];
-		$cfpass = $_POST['cfpwd'];  
-		
-		//-- check null
-		include 'check_null_login.php';
-	}
-?>
+  <?php
+  	if(isset($_POST['submit'])){
+  		
+  		$name = $_POST['userName'];
+  		$pass = $_POST['pwd'];
+  		$cfpass = $_POST['cfpwd'];  
+  		
+  		//-- check null
+  		include 'check_null_login.php';
+  	}
+  ?>
 </center>
+
 </body>
 </html>
