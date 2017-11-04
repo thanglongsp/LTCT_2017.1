@@ -61,12 +61,38 @@
   <?php
   	if(isset($_POST['submit'])){
   		
-  		$name = $_POST['userName'];
-  		$pass = $_POST['pwd'];
-  		
   		//-- check null
-  		include 'check_null_login.php';
+      if(isset($_POST['ok']))
+      {
+        $truename="admin";
+        $truepass="123";
+      $name=$pass="";
+       if($_POST['userName'] == NULL)
+       {
+        echo "Please enter your username<br />";
+       }
+       else
+       {
+        $name=$_POST['userName'];
+       }
+       if($_POST['pwd'] == NULL)
+       {
+        echo "Please enter your password<br />";
+       }
+       else
+       {
+       $pass=$_POST['pwd'];
+       }
+        if($name && $pass) {
+          if($name!=$truename||$pass!=$truepass){
+              echo "Username or password is not correct, please try again";
+          }else{
+            echo "string";
+          }
+        }
+      }
   	}
+
   ?>
 </center>
 
