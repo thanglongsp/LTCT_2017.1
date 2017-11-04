@@ -52,11 +52,6 @@
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
     </div>
 	
-	   <div class="form-group">
-      <label for="cfpwd">Confirm password:</label>
-      <input type="password" class="form-control" id="cfpwd" placeholder="Confirm password" name="cfpwd">
-    </div>
-	
     <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
   </form>
 </div>
@@ -68,7 +63,6 @@
   		
   		$name = $_POST['userName'];
   		$pass = $_POST['pwd'];
-  		$cfpass = $_POST['cfpwd'];  
   		
   		//-- check null
   		include 'check_null_login.php';

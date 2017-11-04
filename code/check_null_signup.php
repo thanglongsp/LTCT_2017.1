@@ -6,11 +6,11 @@ if($name == null)
 		else if($cfpass == null || $pass != $cfpass) 
 			echo 'Notifies: Truong confirm password trong hoac khong dung, moi nhap lai ! ';
 		else if($email == null) 
-			echo 'Notifies: Truong mail chong, moi nhap lai ! ';
+			echo 'Notifies: Truong mail trong, moi nhap lai ! ';
 		else if($address == null) 
-			echo 'Notifies: Truong dia chi chong, moi nhap lai ! ';
+			echo 'Notifies: Truong dia chi trong, moi nhap lai ! ';
 		else if($phone == null) 
-			echo 'Notifies: Truong phone number chong, moi nhap lai ! ';
+			echo 'Notifies: Truong phone number trong, moi nhap lai ! ';
 		else { 
 			header('Location: login.php');
 			echo 'dang ky thanh cong! Xin moi dang nhap!';

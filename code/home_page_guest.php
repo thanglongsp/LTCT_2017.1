@@ -59,7 +59,7 @@
 </nav>
   
 <!--content-->
-<div class="container-fluid text-center" style="min-height:750px;">    
+<div class="container-fluid text-center" style="min-height:750px">    
   <div class="row content">
     <div id="condition1" class="col-sm-12 product1">
      <h1>Content 1</h1>
