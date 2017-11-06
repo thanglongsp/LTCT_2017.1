@@ -12,7 +12,6 @@ if($name == null)
 		else if($phone == null) 
 			echo 'Notifies: Truong phone number chong, moi nhap lai ! ';
 		else { 
-			header('Location: login.php');
-			echo 'dang ky thanh cong! Xin moi dang nhap!';
+			include 'check_signup_db.php';
 		}
 ?>

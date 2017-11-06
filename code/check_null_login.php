@@ -6,7 +6,6 @@ if($name == null)
 		else if($cfpass == null || $pass != $cfpass) 
 			echo 'Notifies: Truong confirm password trong hoac khong dung, moi nhap lai ! ';
 		else {
-			header('Location: home_page_user.php');
-			echo 'thanh cong nhap thanh cong!';
+			include 'check_login_db.php';
 		}
 ?>

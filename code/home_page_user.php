@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['name'])) {
+     header('Location: login.php');
+}else{
+  $name = $_SESSION['name'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,13 +57,14 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>   
       <!--^^-->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+      </ul>
 
        <ul class="nav navbar-nav navbar-right">
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
       </ul>
-	    <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-      </ul>
+
 	    <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>

@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if(isset($_SESSION['name']) && $_SESSION['role'] == 0)
+    header('Location: home_page_user.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -56,7 +56,22 @@
       <label for="cfpwd">Confirm password:</label>
       <input type="password" class="form-control" id="cfpwd" placeholder="Confirm password" name="cfpwd">
     </div>
-	
+
+	<div class="form-group">
+      <label for="fullname">Full name:</label>
+      <input type="text" class="form-control" id="fullname" placeholder="Nguyễn Thăng Long" name="fullname">
+    </div>
+
+  <div class="form-group">
+      <label for="date">Date :</label>
+      <input type="date" class="form-control" id="date" placeholder="day/month/year" name="date">
+    </div>
+
+  <div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type="number" class="form-control" id="gender" placeholder="0 : male or 1 : female" name="gender">
+    </div>
+
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -77,17 +92,27 @@
 <!--Code php-->
 <center>
 <?php
+  // ket noi db
+  include 'connection_db.php';
+
 	if(isset($_POST['submit'])){
+
+    
 		
 		$name = $_POST['userName'];
 		$pass = $_POST['pwd'];
 		$cfpass = $_POST['cfpwd'];
 		$email = $_POST['email'];
+    $role = 0;
+    $gender = $_POST['gender'];
+    $fullname = $_POST['fullname'];
 		$phone = $_POST['phoneNumber'];
 		$address = $_POST['addr'];
+    $date = $_POST['date'];
 		
 		//-- check null
 		include 'check_null_signup.php';
+
 	}
 ?>
 </center>
