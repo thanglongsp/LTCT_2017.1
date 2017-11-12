@@ -54,7 +54,7 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+        <li class="active"><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
       </ul>
        
       <ul class="nav navbar-nav navbar-right">
@@ -76,7 +76,7 @@ if (!isset($_SESSION['name'])) {
 </center>
   <div class="col-sm-6">
       <center><h2>You want to update your information?</h2></center>
-      <form action="profile.php" method="POST">
+      <form action="profile_admin.php" method="POST">
 
       <div class="form-group">
         <label for="fullname">Full name?</label>

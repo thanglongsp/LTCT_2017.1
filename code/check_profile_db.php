@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
 
         if($gender != null){
             $qr6 = "update user set gender = '$gender' where UID = '$name'" ;
-            $result6 = mysqli_query($qr6);
+            $result6 = mysqli_query($conn,$qr6);
             if($result6){
             echo "Updated !";
             }

@@ -73,7 +73,7 @@ if (!isset($_SESSION['name'])) {
 </center>
   <div class="col-sm-6">
       <center><h2>You want to update your information?</h2></center>
-      <form action="profile.php" method="POST">
+      <form action="profile_user.php" method="POST">
 
       <div class="form-group">
         <label for="fullname">Full name?</label>
@@ -119,7 +119,7 @@ if (!isset($_SESSION['name'])) {
         include 'check_profile_db.php';
         
       ?>
-</center>
+  </center>
 
 
   <div class="col-sm-6">

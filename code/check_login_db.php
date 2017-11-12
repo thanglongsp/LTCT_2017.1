@@ -1,5 +1,4 @@
 <?php 
-  session_start();
   $conn=mysqli_connect("localhost","root","","ltct_20171") or die("can't connect this database");
   $sql="select * from user where UID = '$name' and password='$pass'";
   $query=mysqli_query($conn,$sql);
@@ -9,6 +8,7 @@
             echo "Username or password is not correct, please try again";
           }
       else{
+        session_start();
         while ($row = $query->fetch_assoc()) {
                 $_SESSION['name'] = $row["UID"];
                 $_SESSION['role'] = $row["Role"];
