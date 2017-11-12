@@ -33,7 +33,7 @@ if (!isset($_SESSION['name'])) {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active" ><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+        <li class="active" ><a href="home_page_admin.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       </ul>
 
       <!--dropdown-->
@@ -58,18 +58,21 @@ if (!isset($_SESSION['name'])) {
       </form>   
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ><a href="profile_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+        <li><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
       </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+       
+	    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
       </ul>
 
 	  

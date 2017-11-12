@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   $conn=mysqli_connect("localhost","root","","ltct_20171") or die("can't connect this database");
   $sql="select * from user where UID = '$name' and password='$pass'";
   $query=mysqli_query($conn,$sql);
@@ -8,18 +9,16 @@
             echo "Username or password is not correct, please try again";
           }
       else{
-        if($role == 0)
-          {
-            session_start();
-            $_SESSION['name'] = $name;
-            $_SESSION['role'] = $role;
+        while ($row = $query->fetch_assoc()) {
+                $_SESSION['name'] = $row["UID"];
+                $_SESSION['role'] = $row["Role"];
+            }
+        if($_SESSION['role'] == 0)
+          {    
             header("Location: home_page_user.php");
           }
         else {
-            session_start();
-            $_SESSION['name'] = $name;
-            $_SESSION['role'] = $role;
-            header("Location: home_manager.php");
+            header("Location: home_page_admin.php");
         }
       }
 ?>

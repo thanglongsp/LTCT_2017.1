@@ -29,7 +29,7 @@
       </ul>
 	  
 	  <ul class="nav navbar-nav navbar-right">
-        <li><a href="sign_up.php"><span class="glyphicon glyphicon-log-in"</span> Signup</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"</span> Login</a></li>
       </ul>
 	  
     </div>

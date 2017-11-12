@@ -50,11 +50,11 @@ if (!isset($_SESSION['name'])) {
 
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
       </ul>
 
-       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
       </ul>
 
 	    <ul class="nav navbar-nav navbar-right">
