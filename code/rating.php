@@ -36,26 +36,6 @@ if (!isset($_SESSION['name'])) {
         <li class="active" ><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       </ul>
 
-      <!--dropdown-->
-  	  <ul class="nav navbar-nav navbar-left">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-filter"></span> Product
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#condition1">Condition 1</a></li>
-            <li><a href="#condition2">Condition 2</a></li>
-            <li><a href="#condition3">condition 3 </a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <!--Search-->
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>   
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
@@ -73,7 +53,7 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="rating.php"><span class="glyphicon glyphicon-star"></span> Rating</a></li>
+        <li class = "active"><a href="#"><span class="glyphicon glyphicon-star"></span> Rating</a></li>
       </ul>
 	    
       <ul class="nav navbar-nav navbar-right">
@@ -85,22 +65,62 @@ if (!isset($_SESSION['name'])) {
 </nav>
   
 <!--content-->
-<div class="container-fluid text-center" style="min-height:750px;">    
-  <div class="row content">
-    <div id="condition1" class="col-sm-12 product1">
-     <h1>Content</h1>
-    </div>
-    <div id="condition2" class="col-sm-12 product2"> 
-      <h1>Content</h1>
-    </div>
-    <div id="condition3" class="col-sm-12 product3">
-      <h1>Content</h1>
-    </div>
-  </div>
-</div>
 
+<div class="container-fluid text-left" style="min-height:750px;"> 
+  <center>
+<div class="col-sm-6">  
+     <h1>Please! Rating and Comment this page ... </h1>
+    <form action = "rating.php" method = "POST">
+
+      <div class="form-group row">
+
+          <div class="col-xs-12">
+            <label for="date"> <span class="glyphicon glyphicon-calendar"></span> Date : </label>
+            <input class="form-control" id="date" type="number" name="date">
+          <br>
+            <label for="star"><span class="glyphicon glyphicon-star"> Star : </label>
+            <input class="form-control" id="star" type="number" name="star" placeholder = "1 - 5 stars"> </span>
+          <br>
+            <label for="comment"><span class="glyphicon glyphicon-comment"> Comment : </label>
+            <textarea class="form-control" id="comment" name = "comment" rows = "5"></textarea>
+          <br>
+          <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
+
+      </div>
+
+    </form>
+</div>
+</center>
+
+<center>
+<div class = "col-sm-6">
+  <?php echo "<img width=50% height=50% src=\"image/thank.jpg\">" ?>
+</div>
+</center>
+</div>
 <!--Footer-->
 <center>
+
+<!--PHP-->
+<?php 
+include 'connection_db.php';
+if(isset($_POST['submit'])){
+
+        $comment = $_POST['comment'];
+        $star = $_POST['star'];
+        $date = $_POST['date'];
+
+        if($star != null && $comment != null && $date != null){
+            $qr1 = "INSERT INTO rating VALUES ('$name','$star','$comment','$date')";
+            $result1 = mysqli_query($conn,$qr1);
+            if($result1){
+            echo "Thanks you !";      
+            }
+          }else
+        echo "Please! puting every fields.";
+      }
+?>
+
 <div class="footer">
   <p>this is a footer</p>
 </div>

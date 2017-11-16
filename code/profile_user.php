@@ -64,6 +64,13 @@ if (!isset($_SESSION['name'])) {
         <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
 
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-star"></span> Rating</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
+      </ul>
 	  
     </div>
   </div>
