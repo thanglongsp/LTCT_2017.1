@@ -129,16 +129,16 @@ if (!isset($_SESSION['name'])) {
         <?php                      
           //ket noi database
             include 'connection_db.php';
-            $sql = "SELECT  UID,fullname,Address,Phone,Email,gender from user where UID = '$name'" ;
+            $sql = "SELECT  uid,fullname,address,phone,email,gender from user where uid = '$name'" ;
             $result = $conn->query($sql);
 
             /* fetch associative array */
             while ($row = $result->fetch_assoc()) {
-                $_SESSION['uid'] = $row["UID"];
+                $_SESSION['uid'] = $row["uid"];
                 $_SESSION['fullname'] = $row["fullname"];
-                $_SESSION['address'] = $row["Address"];
-                $_SESSION['phone'] = $row["Phone"];
-                $_SESSION['email'] = $row["Email"];
+                $_SESSION['address'] = $row["address"];
+                $_SESSION['phone'] = $row["phone"];
+                $_SESSION['email'] = $row["email"];
                 $_SESSION['gender'] = $row["gender"];
             }
           ?>

@@ -1,6 +1,6 @@
 <?php 
   $conn=mysqli_connect("localhost","root","","ltct_20171") or die("can't connect this database");
-  $sql="select * from user where UID = '$name' and password='$pass'";
+  $sql="select * from user where uid = '$name' and pass='$pass'";
   $query=mysqli_query($conn,$sql);
   $rowcount=mysqli_num_rows($query);
       if($rowcount == 0)
@@ -10,8 +10,8 @@
       else{
         session_start();
         while ($row = $query->fetch_assoc()) {
-                $_SESSION['name'] = $row["UID"];
-                $_SESSION['role'] = $row["Role"];
+                $_SESSION['name'] = $row["uid"];
+                $_SESSION['role'] = $row["role"];
             }
         if($_SESSION['role'] == 0)
           {    

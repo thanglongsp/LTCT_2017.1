@@ -66,13 +66,17 @@ if (!isset($_SESSION['name'])) {
       </ul>
        
 	    <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
+        <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+        <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
+        <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
       </ul>
 
 	  

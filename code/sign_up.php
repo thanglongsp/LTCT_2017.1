@@ -96,9 +96,6 @@
   include 'connection_db.php';
 
 	if(isset($_POST['submit'])){
-
-    
-		
 		$name = $_POST['userName'];
 		$pass = $_POST['pwd'];
 		$cfpass = $_POST['cfpwd'];

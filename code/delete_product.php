@@ -54,14 +54,14 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+        <li><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
       </ul>
        
       <ul class="nav navbar-nav navbar-right">
         <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+        <li class="active"><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
@@ -69,7 +69,7 @@ if (!isset($_SESSION['name'])) {
       <ul class="nav navbar-nav navbar-right">
         <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
       </ul>
-	  
+    
     </div>
   </div>
 </nav>
@@ -77,39 +77,13 @@ if (!isset($_SESSION['name'])) {
 <!--content-->
 </center>
   <div class="col-sm-6">
-      <center><h2>You want to update your information?</h2></center>
-      <form action="profile_admin.php" method="POST">
+      <center><h2>You want to delete product's ID ? </h2></center>
+      <form action="delete_product.php" method="POST">
 
       <div class="form-group">
-        <label for="fullname">Full name?</label>
-        <input type="text" class="form-control" id="fullname" placeholder="Nguyen Tung Son" name="fullname">
+        <input type="text" class="form-control" id="pid" placeholder="SP0001" name="pid">
       </div>
 
-      <div class="form-group">
-         <label for="password">Pass word?</label>
-         <input type="password" class="form-control" id="password" placeholder="strong: 8 character" name="password">
-      </div>
-      
-      <div class="form-group">
-          <label for="address">Address ?</label>
-          <input type="text" class="form-control" id="address" placeholder="Tran Duy Hung" name="address">
-      </div>
-      
-      <div class="form-group">
-          <label for="email">Email ?</label>
-          <input type="email" class="form-control" id="email" placeholder="@gmail.com" name="email">
-      </div>
-      
-      <div class="form-group">
-        <label for="phone">Phone number ?</label>
-        <input type="number" class="form-control" id="phone" placeholder="0123456789" name="phone">
-      </div>
-       
-       <div class="form-group">
-        <label for="gender">Gender ?</label>
-        <input type="number" class="form-control" id="gender" placeholder="1: female, 0 :male" name="gender">
-      </div>
-  
       <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
       </form>
   </div>
@@ -120,45 +94,69 @@ if (!isset($_SESSION['name'])) {
         // ket noi database
         include 'connection_db.php';
 
-        // check null add update data php
-        include 'check_profile_db.php';
-        
-      ?>
+        if(isset($_POST['submit'])){
+          $pid = $_POST['pid'];
+      
+    
+    //-- check null
+    include 'check_delete_product.php';
+
+    }
+  ?>
 </center>
 
 
   <div class="col-sm-6">
 
-  <center><h2>Information about you! </h2></center>
-  <br>
-        <?php                      
-          //ket noi database
-            include 'connection_db.php';
-            $sql = "SELECT  uid,fullname,address,phone,email,gender from user where uid = '$name'" ;
+  <center>
+    <?php                    
+            $sql = "SELECT  * from product" ;
             $result = $conn->query($sql);
-
             /* fetch associative array */
+            
+    echo "<h2>Information about Product : </h2>";
+    echo '<input id="myInput" type="text" placeholder="Search...">';
+
+    echo '<table border="2" class="table table-striped">';
+            echo "<tr>";
+              echo"<th>P_id</th>";
+              echo "<th>P_name</th>";
+              echo "<th>Style</th>";
+              echo "<th>Size</th>";
+              echo "<th>Source</th>";
+              echo "<th>Price</th>";
+              echo "<th>Number</th>";
+              echo "<th>DateInput</th>";
+            echo "</tr>";
+    echo "<tbody id='myTable'>";
             while ($row = $result->fetch_assoc()) {
-                $_SESSION['uid'] = $row["uid"];
-                $_SESSION['fullname'] = $row["fullname"];
-                $_SESSION['address'] = $row["address"];
-                $_SESSION['phone'] = $row["phone"];
-                $_SESSION['email'] = $row["email"];
-                $_SESSION['gender'] = $row["gender"];
+            echo "<tr>";         
+              echo '<td>'.$row["pid"].'</td>';
+              echo '<td>'.$row["pname"].'</td>';
+              echo '<td>'.$row["style"].'</td>';
+              echo '<td>'.$row["size"].'</td>';
+              echo '<td>'.$row["source"].'</td>';
+              echo '<td>'.$row["price"].'</td>';
+              echo '<td>'.$row["number"].'</td>';
+              echo '<td>'.$row["dateinput"].'</td>';
+              echo '<br>';      
+              echo "</tr>";
             }
-          ?>
-              
-              <ul class="ul1">
-              <li class="li1">User name:    <?php echo $_SESSION['uid'];?></li>
-              <li class="li1">Full name:    <?php echo $_SESSION['fullname']; ?></li>
-              <li class="li1">Address:      <?php echo $_SESSION['address'];?></li>
-              <li class="li1">Phone number: <?php echo $_SESSION['phone'];?></li>
-              <li class="li1">Email:        <?php echo $_SESSION['email']; ?></li>
-              <li class="li1">Gender:       <?php echo $_SESSION['gender'] ;?></li>
-              </ul>
+        echo "</tbody>";
+  ?>
 
+  </center>  
   </div>
-
+  <script>
+      $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+        });
+      });
+      </script>
 <!--Footer-->
 
 </body>
