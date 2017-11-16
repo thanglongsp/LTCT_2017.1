@@ -76,7 +76,7 @@ if (!isset($_SESSION['name'])) {
 
           <div class="col-xs-12">
             <label for="date"> <span class="glyphicon glyphicon-calendar"></span> Date : </label>
-            <input class="form-control" id="date" type="number" name="date">
+            <input class="form-control" id="date" type="date" name="date">
           <br>
             <label for="star"><span class="glyphicon glyphicon-star"> Star : </label>
             <input class="form-control" id="star" type="number" name="star" placeholder = "1 - 5 stars"> </span>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['name'])) {
 
 <center>
 <div class = "col-sm-6">
-  <?php echo "<img width=50% height=50% src=\"image/thank.jpg\">" ?>
+  <?php echo "<img width=50% height=50% src=\"image/SP0001.jpg\">" ?>
 </div>
 </center>
 </div>

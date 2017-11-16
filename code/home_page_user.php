@@ -87,24 +87,58 @@ if (!isset($_SESSION['name'])) {
 <!--content-->
 <div class="container-fluid text-center" style="min-height:750px;">    
   <div class="row content">
-    <div id="condition1" class="col-sm-12 product1">
-     <h1>Content</h1>
-    </div>
-    <div id="condition2" class="col-sm-12 product2"> 
-      <h1>Content</h1>
-    </div>
-    <div id="condition3" class="col-sm-12 product3">
-      <h1>Content</h1>
-    </div>
+<!---->
+
+    <center>
+      <div id="condition1" class="col-sm-12 product1"> 
+        <?php echo "<img width=40% height=40% src=\"image/Welcome3.gif\">" ?>
+      </div> 
+    </center>
+<div id="condition2" class="col-sm-12 product1"> 
+    <?php 
+    include 'connection_db.php';
+    $sql = "SELECT  * from product" ;
+    $result = $conn->query($sql);
+    while ($row = $result->fetch_assoc()) {
+           
+            echo '<div id="image1.1" class="col-sm-3 product2">';
+            echo '<img width=40% height=40% src="image/'.$row["pid"].'.jpg"><br>';
+            echo 'Name : '.$row["pname"];
+              echo'<br>';
+            echo 'Style : '.$row["style"];
+              echo'<br>';
+            echo 'Size : '.$row["size"];
+              echo'<br>';
+            echo 'Made in : '.$row["source"];
+              echo'<br>';
+            echo 'price : '.$row["price"];
+              echo'<br>';
+
+            echo '<form active="home_page_user.php" method = "POST">';
+            echo '<button type="submit" name="submit'.$row["pid"].'"class="btn btn-success" ><span class="glyphicon glyphicon-shopping-cart"></span></button>';
+            echo '</form>';
+
+                if(isset($_POST['submit'.$row["pid"]])){
+                    $pid = $row["pid"];
+                    $qr1 = "INSERT INTO cart VALUES ('$name','$pid','1')";
+                    $result1 = mysqli_query($conn,$qr1);
+                    if($result1){
+                    echo "successed !";      
+                    }
+                  }
+            echo '</div>';
+}
+    ?>
+</div>
+<!---->
   </div>
 </div>
 
 <!--Footer-->
 <center>
-<div class="footer">
-  <p>this is a footer</p>
-</div>
+  <div class="footer"> 
+    <p>this is a footer</p>
+  </div>
 </center>
-
 </body>
 </html>

@@ -33,9 +33,12 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-filter"></span> Product
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#condition1">Condition 1</a></li>
-          <li><a href="#condition2">Condition 2</a></li>
-          <li><a href="#condition3">Condition 3 </a></li>
+          <li><a href="#man">Condition 1</a></li>
+          <li><a href="#girl">Condition 2</a></li>
+          <li><a href="#baby">Condition 3 </a></li>
+          <li><a href="#tallPrice">Condition 4 </a></li>
+          <li><a href="#shortPrice">Condition 5 </a></li>
+          <li><a href="#mudiumPrice">Condition 6</a></li>
         </ul>
       </li>
     </ul>
@@ -61,25 +64,45 @@
 <!--content-->
 <div class="container-fluid text-center" style="min-height:750px;">    
   <div class="row content">
-    <div id="condition1" class="col-sm-12 product1">
-     <h1>Content 1</h1>
-    </div>
-    <div id="condition2" class="col-sm-12 product2"> 
-      <h1>Content 2</h1>
-    </div>
-    <div id="condition3" class="col-sm-12 product3">
-      <h1>Content 3</h1>
-    </div>
+<!---->
+
+    <center>
+      <div id="condition1" class="col-sm-12 product1"> 
+        <?php echo "<img width=40% height=40% src=\"image/Welcome3.gif\">" ?>
+      </div> 
+    </center>
+<div id="condition2" class="col-sm-12 product1"> 
+    <?php 
+    include 'connection_db.php';
+    $sql = "SELECT  * from product" ;
+    $result = $conn->query($sql);
+    while ($row = $result->fetch_assoc()) {
+           
+            echo '<div id="image1.1" class="col-sm-3 product2">';
+            echo '<img width=40% height=40% src="image/'.$row["pid"].'.jpg"><br>';
+            echo 'Name : '.$row["pname"];
+              echo'<br>';
+            echo 'Style : '.$row["style"];
+              echo'<br>';
+            echo 'Size : '.$row["size"];
+              echo'<br>';
+            echo 'Made in : '.$row["source"];
+              echo'<br>';
+            echo 'price : '.$row["price"];
+              echo'<br>';
+            echo '</div>';
+}
+    ?>
+</div>
+<!---->
   </div>
 </div>
 
 <!--Footer-->
 <center>
-<div class="footer">
-  
-  <p>this is a footer</p>
-</div>
-
+  <div class="footer"> 
+    <p>this is a footer</p>
+  </div>
 </center>
 </body>
 </html>
