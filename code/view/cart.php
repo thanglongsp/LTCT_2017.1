@@ -106,12 +106,12 @@ if (!isset($_SESSION['name'])) {
   <center>
     <?php
         // ket noi database
-        include 'connection_db.php';
+        include 'model/connection_db.php';
 
         if(isset($_POST['submit'])){
           $uid = $_POST['uid'];  
     //-- check null
-    include 'check_deletefavorite_db.php';
+    include 'model/check_deletefavorite_db.php';
     }
   ?>
 </center>

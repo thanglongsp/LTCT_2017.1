@@ -93,7 +93,7 @@
 <center>
 <?php
   // ket noi db
-  include 'connection_db.php';
+  include 'model/connection_db.php';
 
 	if(isset($_POST['submit'])){
 		$name = $_POST['userName'];
@@ -108,7 +108,7 @@
     $date = $_POST['date'];
 		
 		//-- check null
-		include 'check_null_signup.php';
+		include 'model/check_null_signup.php';
 
 	}
 ?>

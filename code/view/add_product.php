@@ -64,24 +64,60 @@ if (!isset($_SESSION['name'])) {
         <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
+        <li class="active"><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
+        <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
       </ul>
-    
+	  
     </div>
   </div>
 </nav>
   
 <!--content-->
 </center>
-  <div class="col-sm-3">
-      <center><h2>Delete User's name ? </h2></center>
-      <form action="delete_user.php" method="POST">
+  <div class="col-sm-6">
+      <center><h2>Form in put Product's Information </h2></center>
+      <form action="add_product.php" method="POST">
 
       <div class="form-group">
-        <input type="text" class="form-control" id="uid" placeholder="thanglongsp" name="uid">
+        <label for="pid">Product id : </label>
+        <input type="text" class="form-control" id="pid" placeholder="SP0001" name="pid">
+      </div>
+
+      <div class="form-group">
+         <label for="pname">Product Name : </label>
+         <input type="text" class="form-control" id="pname" placeholder="Jean" name="pname">
+      </div>
+      
+      <div class="form-group">
+          <label for="style">Product Style : </label>
+          <input type="text" class="form-control" id="style" placeholder="man or girl ... " name="style">
+      </div>
+      
+      <div class="form-group">
+          <label for="size">Product size : </label>
+          <input type="text" class="form-control" id="size" placeholder="X , M , L , ... " name="size">
+      </div>
+      
+      <div class="form-group">
+        <label for="source">Product source : </label>
+        <input type="text" class="form-control" id="source" placeholder="Made in Viet Nam ... " name="source">
+      </div>
+       
+       <div class="form-group">
+        <label for="price">Product price : </label>
+        <input type="text" class="form-control" id="price" placeholder="1.000.000" name="price">
+      </div>
+      
+      <div class="form-group">
+        <label for="number">Product number : </label>
+        <input type="number" class="form-control" id="number" placeholder=" 3 , 4 , ... " name="number">
+      </div>
+
+      <div class="form-group">
+        <label for="dateinput">Product date input </label>
+        <input type="date" class="form-control" id="dateinput" placeholder="20.11.2017" name="dateinput">
       </div>
 
       <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
@@ -92,51 +128,60 @@ if (!isset($_SESSION['name'])) {
     <?php
 
         // ket noi database
-        include 'connection_db.php';
+        include 'model/connection_db.php';
 
         if(isset($_POST['submit'])){
-          $uid = $_POST['uid'];
+          $pid = $_POST['pid'];
+          $pname = $_POST['pname'];
+          $style = $_POST['style'];
+          $size = $_POST['size'];
+          $source = $_POST['source'];
+          $number = $_POST['number'];
+          $price = $_POST['price'];
+          $dateinput = $_POST['dateinput'];
       
     
     //-- check null
-    include 'check_deleteuser_db.php';
+    include 'model/check_null_addproduct.php';
 
     }
   ?>
 </center>
 
 
-  <div class="col-sm-9">
+  <div class="col-sm-6">
 
   <center>
     <?php                    
-            $sql = "SELECT  * from user where role = 0" ;
+            $sql = "SELECT  * from product" ;
             $result = $conn->query($sql);
             /* fetch associative array */
             
-    echo "<h2>Information about User : </h2>";
+    echo "<h2>Information about Product</h2>";
     echo '<input id="myInput" type="text" placeholder="Search...">';
 
     echo '<table border="2" class="table table-striped">';
             echo "<tr>";
-              echo"<th>Username</th>";
-              echo "<th>Fullname</th>";
-              echo "<th>Birthday</th>";
-              echo "<th>Address</th>";
-              echo "<th>Phone</th>";
-              echo "<th>Email</th>";
-              echo "<th>Gender</th>";
+              echo"<th>P_id</th>";
+              echo "<th>P_name</th>";
+              echo "<th>Style</th>";
+              echo "<th>Size</th>";
+              echo "<th>Source</th>";
+              echo "<th>Price</th>";
+              echo "<th>Number</th>";
+              echo "<th>DateInput</th>";
             echo "</tr>";
     echo "<tbody id='myTable'>";
             while ($row = $result->fetch_assoc()) {
             echo "<tr>";         
-              echo '<td>'.$row["uid"].'</td>';
-              echo '<td>'.$row["fullname"].'</td>';
-              echo '<td>'.$row["birthday"].'</td>';
-              echo '<td>'.$row["address"].'</td>';
-              echo '<td>'.$row["phone"].'</td>';
-              echo '<td>'.$row["email"].'</td>';
-              echo '<td>'.$row["gender"].'</td>';    
+              echo '<td>'.$row["pid"].'</td>';
+              echo '<td>'.$row["pname"].'</td>';
+              echo '<td>'.$row["style"].'</td>';
+              echo '<td>'.$row["size"].'</td>';
+              echo '<td>'.$row["source"].'</td>';
+              echo '<td>'.$row["price"].'</td>';
+              echo '<td>'.$row["number"].'</td>';
+              echo '<td>'.$row["dateinput"].'</td>';   
               echo "</tr>";
             }
         echo "</tbody>";

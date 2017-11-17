@@ -45,29 +45,31 @@ if (!isset($_SESSION['name'])) {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="home_page_admin.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+        <li><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       </ul>
 
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
       </ul>
-       
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+
+	    <ul class="nav navbar-nav navbar-right">
+        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
+        <li><a href="rating.php"><span class="glyphicon glyphicon-star"></span> Rating</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="favorite.php"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
       </ul>
 	  
     </div>
@@ -78,7 +80,7 @@ if (!isset($_SESSION['name'])) {
 </center>
   <div class="col-sm-6">
       <center><h2>You want to update your information?</h2></center>
-      <form action="profile_admin.php" method="POST">
+      <form action="profile_user.php" method="POST">
 
       <div class="form-group">
         <label for="fullname">Full name?</label>
@@ -118,13 +120,13 @@ if (!isset($_SESSION['name'])) {
     <?php
 
         // ket noi database
-        include 'connection_db.php';
+        include 'model/connection_db.php';
 
         // check null add update data php
-        include 'check_profile_db.php';
+        include 'model/check_profile_db.php';
         
       ?>
-</center>
+  </center>
 
 
   <div class="col-sm-6">
@@ -133,7 +135,7 @@ if (!isset($_SESSION['name'])) {
   <br>
         <?php                      
           //ket noi database
-            include 'connection_db.php';
+            include 'model/connection_db.php';
             $sql = "SELECT  uid,fullname,address,phone,email,gender from user where uid = '$name'" ;
             $result = $conn->query($sql);
 

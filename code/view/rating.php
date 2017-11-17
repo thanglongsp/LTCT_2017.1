@@ -103,7 +103,7 @@ if (!isset($_SESSION['name'])) {
 
 <!--PHP-->
 <?php 
-include 'connection_db.php';
+include 'model/connection_db.php';
 if(isset($_POST['submit'])){
 
         $comment = $_POST['comment'];

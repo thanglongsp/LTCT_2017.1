@@ -77,7 +77,7 @@ if(isset($_SESSION['name']) && $_SESSION['role'] == 0)
   		$cfpass = $_POST['cfpwd'];  
   		
   		//-- check null
-  		include 'check_null_login.php';
+  		include 'model/check_null_login.php';
   	}
   ?>
 </center>

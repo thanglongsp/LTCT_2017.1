@@ -42,19 +42,55 @@ if (!isset($_SESSION['name'])) {
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-filter"></span> Product
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#condition1">Condition 1</a></li>
-            <li><a href="#condition2">Condition 2</a></li>
-            <li><a href="#condition3">condition 3 </a></li>
-          </ul>
-        </li>
-      </ul>
+            <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Gender      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#gender_girl"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for girl</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for boy</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for BD</a></li>
+          
+          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Year Old      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Baby</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Teen</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Older</a></li>
+
+          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span>  Season     <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Spring</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Summer</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Autumn</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Winter</a></li>
+
+
+          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span>  Play     <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Beach</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Walking</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Festival</a></li>
+
+
+          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Working      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Office</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for School</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Multilevel</a></li>
+
+          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Style      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Dress</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Shirt</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Jean</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Sexy</a></li>
+
+          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Country      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for JaPan</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for China</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for India</a></li>
+
+        </ul>
+      </li>
+    </ul>
 
       <!--Search-->
       <form class="navbar-form navbar-left">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+          <input id = "myInput"type="text" class="form-control" placeholder="You can search every one If we have it hear ... ">
+      </div>
       </form>   
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
@@ -90,7 +126,7 @@ if (!isset($_SESSION['name'])) {
 <!---->
 
     <center>
-      <div id="condition1" class="col-sm-12 product1"> 
+      <div id="condition1" class="col-sm-12"> 
         <?php 
         echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
         echo "<img width=40% height=40% src=\"image/welcome/Welcome3.gif\">" ;
@@ -98,17 +134,16 @@ if (!isset($_SESSION['name'])) {
         ?>
       </div> 
     </center>
-<div id="condition2" class="col-sm-12 product1"> 
+    <div id="myTarget" class="col-sm-12 product1"> 
     <?php 
-    include 'connection_db.php';
+    include 'model/connection_db.php';
     $sql = "SELECT  * from product where style = 'girl'" ;
     $result = $conn->query($sql);
-    echo '<h1>Fashion for Girl</h1>';
+    echo '<div> <h1 id="gender_girl">Fashion for Girl</h1></div>';
             echo "<br>";
-
     while ($row = $result->fetch_assoc()) {
            
-            echo '<div id="image1.1" class="col-sm-3 product2">';
+            echo '<div id = "gender_girl_bg" class="col-sm-3">';
             echo '<img width=90% height=90% src="image/gender/girl/'.$row["pid"].'.jpg"><br>';
             echo 'Name : '.$row["pname"];
               echo'<br>';
@@ -143,6 +178,16 @@ if (!isset($_SESSION['name'])) {
             echo '</div>';
 }
     ?>
+<script>
+          $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTarget div").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            });
+          });
+    </script>
 </div>
 <!---->
   </div>

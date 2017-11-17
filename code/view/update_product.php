@@ -58,10 +58,10 @@ if (!isset($_SESSION['name'])) {
       </ul>
        
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
+        <li class="active"><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+        <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
@@ -77,11 +77,47 @@ if (!isset($_SESSION['name'])) {
 <!--content-->
 </center>
   <div class="col-sm-6">
-      <center><h2>You want to delete product's ID ? </h2></center>
-      <form action="delete_product.php" method="POST">
+      <center><h2>You want to update fields ? </h2></center>
+      <form action="update_product.php" method="POST">
 
       <div class="form-group">
+        <label for="pid">Product id : </label>
         <input type="text" class="form-control" id="pid" placeholder="SP0001" name="pid">
+      </div>
+
+      <div class="form-group">
+         <label for="pname">Product Name : </label>
+         <input type="text" class="form-control" id="pname" placeholder="Jean" name="pname">
+      </div>
+      
+      <div class="form-group">
+          <label for="style">Product Style : </label>
+          <input type="text" class="form-control" id="style" placeholder="man or girl ... " name="style">
+      </div>
+      
+      <div class="form-group">
+          <label for="size">Product size : </label>
+          <input type="text" class="form-control" id="size" placeholder="X , M , L , ... " name="size">
+      </div>
+      
+      <div class="form-group">
+        <label for="source">Product source : </label>
+        <input type="text" class="form-control" id="source" placeholder="Made in Viet Nam ... " name="source">
+      </div>
+       
+       <div class="form-group">
+        <label for="price">Product price : </label>
+        <input type="text" class="form-control" id="price" placeholder="1.000.000" name="price">
+      </div>
+      
+      <div class="form-group">
+        <label for="number">Product number : </label>
+        <input type="number" class="form-control" id="number" placeholder=" 3 , 4 , ... " name="number">
+      </div>
+
+      <div class="form-group">
+        <label for="dateinput">Product date input : </label>
+        <input type="date" class="form-control" id="dateinput" placeholder="20.11.2017" name="dateinput">
       </div>
 
       <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
@@ -92,14 +128,21 @@ if (!isset($_SESSION['name'])) {
     <?php
 
         // ket noi database
-        include 'connection_db.php';
+        include 'model/connection_db.php';
 
         if(isset($_POST['submit'])){
           $pid = $_POST['pid'];
+          $pname = $_POST['pname'];
+          $style = $_POST['style'];
+          $size = $_POST['size'];
+          $source = $_POST['source'];
+          $number = $_POST['number'];
+          $price = $_POST['price'];
+          $dateinput = $_POST['dateinput'];
       
     
     //-- check null
-    include 'check_delete_product.php';
+    include 'model/check_updateproduct_db.php';
 
     }
   ?>
@@ -114,7 +157,7 @@ if (!isset($_SESSION['name'])) {
             $result = $conn->query($sql);
             /* fetch associative array */
             
-    echo "<h2>Information about Product : </h2>";
+    echo "<h2>Information about Product</h2>";
     echo '<input id="myInput" type="text" placeholder="Search...">';
 
     echo '<table border="2" class="table table-striped">';
