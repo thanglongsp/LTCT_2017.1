@@ -45,29 +45,31 @@ if (!isset($_SESSION['name'])) {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="home_page_admin.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+        <li><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       </ul>
 
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
+        <li ><a href="profile_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
       </ul>
-       
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
+        <li><a href="rating.php"><span class="glyphicon glyphicon-star"></span> Rating</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class = "active"><a href="favorite.php"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
       </ul>
     
     </div>
@@ -76,12 +78,12 @@ if (!isset($_SESSION['name'])) {
   
 <!--content-->
 </center>
-  <div class="col-sm-3">
-      <center><h2>Delete User's name ? </h2></center>
-      <form action="delete_user.php" method="POST">
+  <div class="col-sm-6">
+      <center><h2>Delete favorite Product ? </h2></center>
+      <form action="favorite.php" method="POST">
 
       <div class="form-group">
-        <input type="text" class="form-control" id="uid" placeholder="thanglongsp" name="uid">
+        <input type="text" class="form-control" id="pid" placeholder="G001" name="pid">
       </div>
 
       <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
@@ -95,51 +97,44 @@ if (!isset($_SESSION['name'])) {
         include 'connection_db.php';
 
         if(isset($_POST['submit'])){
-          $uid = $_POST['uid'];
+          $pid = $_POST['pid'];
       
     
     //-- check null
-    include 'check_deleteuser_db.php';
+    include 'check_deletefavorite_db.php';
 
     }
   ?>
 </center>
 
 
-  <div class="col-sm-9">
+  <div class="col-sm-6">
 
   <center>
     <?php                    
-            $sql = "SELECT  * from user where role = 0" ;
+            $sql = "SELECT product.pid,product.pname FROM product inner join favorite on product.pid = favorite.pid where favorite.uid = '$name'";
             $result = $conn->query($sql);
+            // if($result) echo "true";
+            // else echo "false";
+            //$row = $result->fetch_assoc();
             /* fetch associative array */
             
-    echo "<h2>Information about User : </h2>";
-    echo '<input id="myInput" type="text" placeholder="Search...">';
+            echo "<h2>Information about User : </h2>";
+            echo '<input id="myInput" type="text" placeholder="Search...">';
 
-    echo '<table border="2" class="table table-striped">';
-            echo "<tr>";
-              echo"<th>Username</th>";
-              echo "<th>Fullname</th>";
-              echo "<th>Birthday</th>";
-              echo "<th>Address</th>";
-              echo "<th>Phone</th>";
-              echo "<th>Email</th>";
-              echo "<th>Gender</th>";
-            echo "</tr>";
-    echo "<tbody id='myTable'>";
-            while ($row = $result->fetch_assoc()) {
-            echo "<tr>";         
-              echo '<td>'.$row["uid"].'</td>';
-              echo '<td>'.$row["fullname"].'</td>';
-              echo '<td>'.$row["birthday"].'</td>';
-              echo '<td>'.$row["address"].'</td>';
-              echo '<td>'.$row["phone"].'</td>';
-              echo '<td>'.$row["email"].'</td>';
-              echo '<td>'.$row["gender"].'</td>';    
-              echo "</tr>";
-            }
-        echo "</tbody>";
+            echo '<table border="2" class="table table-striped">';
+                    echo "<tr>";
+                      echo"<th>Favorite ProductID</th>";
+                      echo"<th>Favorite Product</th>";
+                    echo "</tr>";
+            echo "<tbody id='myTable'>";
+                    while ($row = $result->fetch_assoc()) {
+                      echo "<tr>";    
+                      echo '<td>'.$row["pid"].'</td>';     
+                      echo '<td>'.$row["pname"].'</td>';  
+                      echo "</tr>";
+                    }
+                echo "</tbody>";
   ?>
 
   </center>  

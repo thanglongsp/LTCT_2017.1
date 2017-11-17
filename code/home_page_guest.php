@@ -68,18 +68,25 @@
 
     <center>
       <div id="condition1" class="col-sm-12 product1"> 
-        <?php echo "<img width=40% height=40% src=\"image/Welcome3.gif\">" ?>
+        <?php 
+        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+        echo "<img width=40% height=40% src=\"image/welcome/Welcome3.gif\">" ;
+        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+
+        ?>
       </div> 
     </center>
 <div id="condition2" class="col-sm-12 product1"> 
     <?php 
     include 'connection_db.php';
-    $sql = "SELECT  * from product" ;
+    $sql = "SELECT  * from product where style = 'girl'" ;
     $result = $conn->query($sql);
+    echo '<h1>Fashion for Girl</h1>';
+            echo "<br>";
     while ($row = $result->fetch_assoc()) {
-           
+            
             echo '<div id="image1.1" class="col-sm-3 product2">';
-            echo '<img width=40% height=40% src="image/'.$row["pid"].'.jpg"><br>';
+            echo '<img width=90% height=90% src="image/girl/'.$row["pid"].'.jpg"><br>';
             echo 'Name : '.$row["pname"];
               echo'<br>';
             echo 'Style : '.$row["style"];

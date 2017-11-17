@@ -33,7 +33,7 @@ if (!isset($_SESSION['name'])) {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active" ><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+        <li><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
       </ul>
 
       <!--^^-->
@@ -46,7 +46,7 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['name'])) {
       </ul>
 	    
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
+        <li><a href="favorite.php"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
       </ul>
 
     </div>
@@ -94,7 +94,7 @@ if (!isset($_SESSION['name'])) {
 
 <center>
 <div class = "col-sm-6">
-  <?php echo "<img width=50% height=50% src=\"image/SP0001.jpg\">" ?>
+  <?php echo "<img width=50% height=50% src=\"image/thank/thank.jpg\">" ?>
 </div>
 </center>
 </div>

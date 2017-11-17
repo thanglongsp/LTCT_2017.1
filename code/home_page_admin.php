@@ -87,18 +87,66 @@ if (!isset($_SESSION['name'])) {
 <!--content-->
 <div class="container-fluid text-center" style="min-height:750px;">    
   <div class="row content">
-    <div id="condition1" class="col-sm-12 product1">
-     <h1>Content</h1>
-    </div>
-    <div id="condition2" class="col-sm-12 product2"> 
-      <h1>Content</h1>
-    </div>
-    <div id="condition3" class="col-sm-12 product3">
-      <h1>Content</h1>
-    </div>
+<!---->
+
+    <center>
+      <div id="condition1" class="col-sm-12 product1"> 
+        <?php 
+        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+        echo "<img width=40% height=40% src=\"image/welcome/Welcome3.gif\">" ;
+        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+        ?>
+      </div> 
+    </center>
+<div id="condition2" class="col-sm-12 product1"> 
+    <?php 
+    include 'connection_db.php';
+    $sql = "SELECT  * from product where style = 'girl'" ;
+    $result = $conn->query($sql);
+    echo '<h1>Fashion for Girl</h1>';
+            echo "<br>";
+
+    while ($row = $result->fetch_assoc()) {
+           
+            echo '<div id="image1.1" class="col-sm-3 product2">';
+            echo '<img width=90% height=90% src="image/gender/girl/'.$row["pid"].'.jpg"><br>';
+            echo 'Name : '.$row["pname"];
+              echo'<br>';
+            echo 'Style : '.$row["style"];
+              echo'<br>';
+            echo 'Size : '.$row["size"];
+              echo'<br>';
+            echo 'Made in : '.$row["source"];
+              echo'<br>';
+            echo 'Price : '.$row["price"].'VND';
+              echo'<br>';
+
+            echo '<form active="home_page_user.php" method = "POST">';
+            echo '<button type="submit" name="submit1'.$row["pid"].'"class="btn btn-red" ><span class="glyphicon glyphicon-heart"></span></button>';
+            echo '<button type="submit" name="submit2'.$row["pid"].'"class="btn btn-success" ><span class="glyphicon glyphicon-shopping-cart"></span></button>';
+            echo "<br>";
+            echo "<br>";
+            echo '</form>';
+                
+                if(isset($_POST['submit1'.$row["pid"]])){
+                    $pid = $row["pid"];
+                    $qr1 = "INSERT INTO favorite VALUES ('$name','$pid')";
+                    $result1 = mysqli_query($conn,$qr1);
+                  }
+
+                if(isset($_POST['submit2'.$row["pid"]])){
+                    $pid = $row["pid"];
+                    $qr1 = "INSERT INTO cart VALUES ('$name','$pid','1')";
+                    $result1 = mysqli_query($conn,$qr1);    
+                  }
+
+            echo '</div>';
+}
+    ?>
+</div>
+<!---->
   </div>
 </div>
-
 <!--Footer-->
 <center>
 <div class="footer">

@@ -181,8 +181,7 @@ if (!isset($_SESSION['name'])) {
               echo '<td>'.$row["source"].'</td>';
               echo '<td>'.$row["price"].'</td>';
               echo '<td>'.$row["number"].'</td>';
-              echo '<td>'.$row["dateinput"].'</td>';
-              echo '<br>';      
+              echo '<td>'.$row["dateinput"].'</td>';   
               echo "</tr>";
             }
         echo "</tbody>";

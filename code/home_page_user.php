@@ -66,7 +66,7 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
@@ -77,7 +77,7 @@ if (!isset($_SESSION['name'])) {
       </ul>
 	    
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
+        <li><a href="favorite.php"><span class="glyphicon glyphicon-bookmark"></span> Favorite</a></li>
       </ul>
 
     </div>
@@ -91,18 +91,25 @@ if (!isset($_SESSION['name'])) {
 
     <center>
       <div id="condition1" class="col-sm-12 product1"> 
-        <?php echo "<img width=40% height=40% src=\"image/Welcome3.gif\">" ?>
+        <?php 
+        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+        echo "<img width=40% height=40% src=\"image/welcome/Welcome3.gif\">" ;
+        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+        ?>
       </div> 
     </center>
 <div id="condition2" class="col-sm-12 product1"> 
     <?php 
     include 'connection_db.php';
-    $sql = "SELECT  * from product" ;
+    $sql = "SELECT  * from product where style = 'girl'" ;
     $result = $conn->query($sql);
+    echo '<h1>Fashion for Girl</h1>';
+            echo "<br>";
+
     while ($row = $result->fetch_assoc()) {
            
             echo '<div id="image1.1" class="col-sm-3 product2">';
-            echo '<img width=40% height=40% src="image/'.$row["pid"].'.jpg"><br>';
+            echo '<img width=90% height=90% src="image/gender/girl/'.$row["pid"].'.jpg"><br>';
             echo 'Name : '.$row["pname"];
               echo'<br>';
             echo 'Style : '.$row["style"];
@@ -111,21 +118,28 @@ if (!isset($_SESSION['name'])) {
               echo'<br>';
             echo 'Made in : '.$row["source"];
               echo'<br>';
-            echo 'price : '.$row["price"];
+            echo 'Price : '.$row["price"].'VND';
               echo'<br>';
 
             echo '<form active="home_page_user.php" method = "POST">';
-            echo '<button type="submit" name="submit'.$row["pid"].'"class="btn btn-success" ><span class="glyphicon glyphicon-shopping-cart"></span></button>';
+            echo '<button type="submit" name="submit1'.$row["pid"].'"class="btn btn-red" ><span class="glyphicon glyphicon-heart"></span></button>';
+            echo '<button type="submit" name="submit2'.$row["pid"].'"class="btn btn-success" ><span class="glyphicon glyphicon-shopping-cart"></span></button>';
+            echo "<br>";
+            echo "<br>";
             echo '</form>';
+                
+                if(isset($_POST['submit1'.$row["pid"]])){
+                    $pid = $row["pid"];
+                    $qr1 = "INSERT INTO favorite VALUES ('$name','$pid')";
+                    $result1 = mysqli_query($conn,$qr1);
+                  }
 
-                if(isset($_POST['submit'.$row["pid"]])){
+                if(isset($_POST['submit2'.$row["pid"]])){
                     $pid = $row["pid"];
                     $qr1 = "INSERT INTO cart VALUES ('$name','$pid','1')";
-                    $result1 = mysqli_query($conn,$qr1);
-                    if($result1){
-                    echo "successed !";      
-                    }
+                    $result1 = mysqli_query($conn,$qr1);    
                   }
+
             echo '</div>';
 }
     ?>
