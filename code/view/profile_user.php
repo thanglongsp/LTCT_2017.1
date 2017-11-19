@@ -50,12 +50,15 @@ if (!isset($_SESSION['name'])) {
 
       <!--^^-->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
-      </ul>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-toggle" data-toggle="dropdown" href="profile_user.php"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
+          </ul>
+          </li>
+        </ul>
+    
 
 	    <ul class="nav navbar-nav navbar-right">
         <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>

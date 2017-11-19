@@ -93,17 +93,24 @@ if (!isset($_SESSION['name'])) {
         </div>
       </form>   
       <!--^^-->
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> logout</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li ><a href="profile_user.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
-      </ul>
-
+       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="profile_user.php"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
+          </ul>
+          </li>
+        </ul>
+    
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="bill.php"><span class="glyphicon glyphicon-send"></span> Bill</a></li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
@@ -139,6 +146,7 @@ if (!isset($_SESSION['name'])) {
     include 'model/connection_db.php';
     $sql = "SELECT  * from product where style = 'girl'" ;
     $result = $conn->query($sql);
+    $quantity = 0;
     echo '<div> <h1 id="gender_girl">Fashion for Girl</h1></div>';
             echo "<br>";
     while ($row = $result->fetch_assoc()) {
@@ -171,9 +179,18 @@ if (!isset($_SESSION['name'])) {
 
                 if(isset($_POST['submit2'.$row["pid"]])){
                     $pid = $row["pid"];
-                    $qr1 = "INSERT INTO cart VALUES ('$name','$pid','1')";
-                    $result1 = mysqli_query($conn,$qr1);    
-                  }
+                    $sql1 = "SELECT  * from cart where pid = '$pid' and uid ='$name'";
+                    $result1 = $conn->query($sql1);
+                    $row1 = $result1->fetch_assoc();
+                    if ($row1 != 0) {
+                      $quantity = $row1['quantity'] + 1;
+                      $qr4 = "update cart set quantity = '$quantity' where pid = '$pid' and uid = '$name'";
+                      $result4 = mysqli_query($conn,$qr4);
+                    }else{
+                    $qr2 = "INSERT INTO cart VALUES ('$name','$pid','1')";
+                    $result2 = mysqli_query($conn,$qr2);    
+                    }
+                 }
 
             echo '</div>';
 }

@@ -49,30 +49,34 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <!--^^-->
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
-      </ul>
+       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
+          </ul>
+          </li>
+        </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="profile_admin.php"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?></a></li>
-      </ul>
-       
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
-      </ul>
-	  
+
+       <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-king"></span> Manager
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
+            <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
+            <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
+            <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
+        </ul>
+      </li>
+    </ul>
+    
     </div>
   </div>
 </nav>
+  
   
 <!--content-->
 </center>
