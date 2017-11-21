@@ -50,8 +50,13 @@ if (!isset($_SESSION['name'])) {
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
+        <li><a href="bill.php"><span class=" glyphicon glyphicon-usd"></span> Bill</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="followbill.php"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

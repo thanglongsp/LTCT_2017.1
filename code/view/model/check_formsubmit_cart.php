@@ -37,7 +37,7 @@
                 $status = 0;
 
                 while ($row = $result->fetch_assoc()) {
-                $sql = "INSERT INTO bill VALUES ('$name','".$row["pid"]."','".$row["quantity"]."','$datebuild','$status')";
+                $sql = "INSERT INTO bill VALUES ('$code','$name','".$row["pid"]."','".$row["quantity"]."','$status')";
                 $result1 = mysqli_query($conn,$sql);
                 }
 

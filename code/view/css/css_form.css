@@ -5,7 +5,7 @@
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {height: 500px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -18,7 +18,7 @@
     .footer {
       background-color: #555;
       color: white;
-      padding: 15px;
+      padding: 0px;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -37,3 +37,22 @@
         background: #cce5ff;
         margin: 5px;
     }
+    #div{
+                height:100%;
+                width:100%;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+            }
+
+            #gender_girl {color: #fff; background-color: #1E88E5;}
+            #section2 {color: #fff; background-color: #673ab7;}
+            #section3 {color: #fff; background-color: #ff9800;}
+            #section41 {color: #fff; background-color: #00bcd4;}
+            #section42 {color: #fff; background-color: #009688;}
+
+            #gender_girl_bg_{color: #fff; background-color: #1E88E5;}
+            #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+            #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+            #section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+            #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}

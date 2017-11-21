@@ -9,7 +9,15 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-max.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css"  href="css/css_form.css">
-  <style>
+  <style>   
+            #div{
+                height:100%;
+                width:100%;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+            }
+
             #gender_girl {color: #fff; background-color: #1E88E5;}
             #section2 {color: #fff; background-color: #673ab7;}
             #section3 {color: #fff; background-color: #ff9800;}
@@ -41,51 +49,47 @@
     </ul>
 
     <!--dropdown-->
-    <ul class="nav navbar-nav navbar-left">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-filter"></span> Product
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-
-          <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Gender      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
+     <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-filter"></span> Product
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Gender      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
             <li><a href="#gender_girl"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for girl</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for boy</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for BD</a></li>
+            <li><a href="#gender_boy"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for boy</a></li>
           
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Year Old      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Baby</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Teen</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Older</a></li>
+            <li><a href="#year_baby"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Baby</a></li>
+            <li><a href="#year_teen"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Teen</a></li>
+            <li><a href="#year_older"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Older</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span>  Season     <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Spring</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Summer</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Autumn</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Winter</a></li>
+            <li><a href="#season_spring"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Spring</a></li>
+            <li><a href="#season_summer"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Summer</a></li>
+            <li><a href="#season_autumn"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Autumn</a></li>
+            <li><a href="#season_winter"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Winter</a></li>
 
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span>  Play     <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Beach</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Walking</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Festival</a></li>
+            <li><a href="#play_beach"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Beach</a></li>
+            <li><a href="#play_walking"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Walking</a></li>
+            <li><a href="#play_festival"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Festival</a></li>
 
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Working      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Office</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for School</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Multilevel</a></li>
+            <li><a href="#working_office"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Office</a></li>
+            <li><a href="#working_multillevel"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Multilevel</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Style      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Dress</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Shirt</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Jean</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Sexy</a></li>
+            <li><a href="#style_dress"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Dress</a></li>
+            <li><a href="#style_shirt"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Shirt</a></li>
+            <li><a href="#style_jean"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Jean</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Country      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for JaPan</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for China</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for India</a></li>
+            <li><a href="country_vietnam"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
+            <li><a href="#country_japan"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for JaPan</a></li>
+            <li><a href="#country_china"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for China</a></li>
+            <li><a href="#country_korea"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Korea</a></li>
 
         </ul>
       </li>
@@ -107,45 +111,25 @@
     </div>
   </div>
 </nav>
-  
+
 <!--content-->
-<div class="container-fluid text-center" style="min-height:750px;">    
+<div  class="container-fluid text-center" style="max-height:100%;">    
   <div class="row content">
 <!---->
 
     <center>
-      <div data-spy="scroll" data-offset="20" class="col-sm-12"> 
+      <div class="col-sm-12"> 
         <?php 
-        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
-        echo "<img width=40% height=40% src=\"image/welcome/Welcome3.gif\">" ;
-        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
-
+          include 'model/header.php';
         ?>
       </div> 
     </center>
-<div id="myTarget" class="col-sm-12"> 
+    <div id="div" class="col-sm-12"> 
+    <div id="myTarget" class="col-sm-12"> 
     <?php 
     include 'model/connection_db.php';
-    $sql = "SELECT  * from product where style = 'girl'" ;
-    $result = $conn->query($sql);
-    echo '<div> <h1 id="gender_girl">Fashion for Girl</h1></div>';
-            echo "<br>";
-    while ($row = $result->fetch_assoc()) {
-            
-            echo '<div id = "gender_girl_bg" class="col-sm-3">';
-            echo '<img width=90% height=90% src="image/girl/'.$row["pid"].'.jpg"><br>';
-            echo 'Name : '.$row["pname"];
-              echo'<br>';
-            echo 'Style : '.$row["style"];
-              echo'<br>';
-            echo 'Size : '.$row["size"];
-              echo'<br>';
-            echo 'Made in : '.$row["source"];
-              echo'<br>';
-            echo 'price : '.$row["price"];
-              echo'<br>';
-            echo '</div>';
-        }
+    include 'model/display_product_guest.php';  
+    
     ?>
 
     <script>
@@ -159,15 +143,16 @@
           });
     </script>
 </div>
+</div>
 <!---->
   </div>
 </div>
 
 <!--Footer-->
-<center>
+<!-- <center>
   <div class="footer"> 
-    <h1>Thăng Long sp<h1/>
+    <p>Thăng Long sp</p/>
   </div>
-</center>
+</center> -->
 </body>
 </html>

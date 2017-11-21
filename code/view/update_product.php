@@ -28,6 +28,12 @@ if (!isset($_SESSION['name'])) {
         background: #FFFAF0;
         margin: 5px;
     }
+     #div{
+                height: 600px;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+    }
   </style>
 </head>
 
@@ -65,7 +71,7 @@ if (!isset($_SESSION['name'])) {
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-king"></span> Manager
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
+            <li class="active"><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
             <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
             <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
             <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
@@ -79,6 +85,7 @@ if (!isset($_SESSION['name'])) {
   
 <!--content-->
 </center>
+<div class ="col-sm-12" style="max-height:100%;">
   <div class="col-sm-6">
       <center><h2>You want to update fields ? </h2></center>
       <form action="update_product.php" method="POST">
@@ -152,17 +159,17 @@ if (!isset($_SESSION['name'])) {
 </center>
 
 
-  <div class="col-sm-6">
+  <div class="col-sm-6" > 
 
   <center>
     <?php                    
             $sql = "SELECT  * from product" ;
             $result = $conn->query($sql);
             /* fetch associative array */
-            
+          
     echo "<h2>Information about Product</h2>";
     echo '<input id="myInput" type="text" placeholder="Search...">';
-
+    echo '<div class = "col-sm-12" id="div">'; 
     echo '<table border="2" class="table table-striped">';
             echo "<tr>";
               echo"<th>P_id</th>";
@@ -188,8 +195,8 @@ if (!isset($_SESSION['name'])) {
               echo "</tr>";
             }
         echo "</tbody>";
+      echo '</div>';
   ?>
-
   </center>  
   </div>
   <script>
@@ -202,7 +209,7 @@ if (!isset($_SESSION['name'])) {
         });
       });
       </script>
-<!--Footer-->
+</div>
 
 </body>
 </html>

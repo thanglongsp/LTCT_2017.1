@@ -28,6 +28,13 @@ if (!isset($_SESSION['name'])) {
         background: #FFFAF0;
         margin: 5px;
     }
+     #div{
+                height:100%;
+                width:100%;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+            }
   </style>
 </head>
 
@@ -68,7 +75,7 @@ if (!isset($_SESSION['name'])) {
             <li><a href="update_product.php"><span class="glyphicon glyphicon-wrench"></span> Update product</a></li>
             <li><a href="delete_product.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete product</a></li>
             <li><a href="add_product.php"><span class="glyphicon glyphicon-plus-sign"></span>  Add product</a></li>
-            <li><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
+            <li class="active"><a href="delete_user.php"><span class="glyphicon glyphicon-minus-sign"></span>  Delete User</a></li>
         </ul>
       </li>
     </ul>
@@ -90,6 +97,9 @@ if (!isset($_SESSION['name'])) {
 
       <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
       </form>
+      <image width = "100%;" src="image/welcome/heart.gif"></image>
+      <image width = "100%;" src="image/welcome/heart.gif"></image>
+      <image width = "100%;" src="image/welcome/heart.gif"></image>
   </div>
   <!--Code php-->
   <center>

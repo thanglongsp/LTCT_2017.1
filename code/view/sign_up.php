@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  #div{
+                height: 600px;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+    }
+  </style>
 </head>
 <body>
  
@@ -39,8 +47,16 @@
 <!--
 - form sign up ...
 -->
-<div class="container">
-  <h2>Form SignUp</h2>
+<div class="col-sm-3">
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+</div>
+
+  
+  <div class="col-sm-5" >
+  <center> <h2>Form SignUp</h2></center>
+  <div class = "col-sm-12" style="max-height:600px;" id="div">
   <form action="sign_up.php" method="POST">
   <div class="form-group">
       <label for="userName">Name:</label>
@@ -88,7 +104,7 @@
     <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
   </form>
 </div>
-
+</div>
 <!--Code php-->
 <center>
 <?php
@@ -112,6 +128,9 @@
 
 	}
 ?>
+<div class="col-sm-4"> 
+   <image width = "80%;" src="image/welcome/arigatou.gif"></image>
+</div>
 </center>
 </body>
 </html>

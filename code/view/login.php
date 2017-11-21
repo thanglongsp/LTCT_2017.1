@@ -45,7 +45,15 @@ if(isset($_SESSION['name']) && $_SESSION['role'] == 0)
 <!--
 - form sign up ...
 -->
-<div class="container">
+<div class="col-sm-3">
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+</div>
+<div class="col-sm-3">
+  <br>
+  <br>
+  <br>
   <h2>Form Login</h2>
   <form action="login.php" method="POST">
   <div class="form-group">
@@ -65,6 +73,11 @@ if(isset($_SESSION['name']) && $_SESSION['role'] == 0)
 	
     <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
   </form>
+  <image width = "100%;" src="image/welcome/heart.gif"></image>
+
+</div>
+<div class="col-sm-6">
+  <image width = "100%;" src="image/welcome/welcome1.gif"></image>
 </div>
 
 <!--Code php-->

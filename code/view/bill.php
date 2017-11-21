@@ -28,6 +28,12 @@ if (!isset($_SESSION['name'])) {
         background: #FFFAF0;
         margin: 5px;
     }
+    #div{
+                height: 600px;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+    }
   </style>
 </head>
 
@@ -60,15 +66,15 @@ if (!isset($_SESSION['name'])) {
         </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class = "active"><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="bill.php"><span class="glyphicon glyphicon-send"></span> Bill</a></li>
+        <li class = "active"><a href="bill.php"><span class=" glyphicon glyphicon-usd"></span> Bill</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
+        <li><a href="followbill.php"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -82,20 +88,65 @@ if (!isset($_SESSION['name'])) {
     </div>
   </div>
 </nav>
+ <div class="col-sm-12" style="max-height:100%;">
+ <div class="col-sm-6">
+  <br>
+  <center>
+  <image width = "100%;" src="image/welcome/loading.gif"></image>
+  <p><b>Loading ... </b></p>
+</center>
+ </div>
 <center>
-  <div class="col-sm-6"></div>
   <div class="col-sm-6">
               <?php    
-                      include 'model/connection_db.php' ;             
-                      $sql = "SELECT product.pid,product.pname,SUM(quantity) quantity,Sum(quantity)*price price FROM product inner join bill on product.pid = bill.pid where bill.uid = '$name' and  bill.status = '0' GROUP BY pid";
+                      include 'model/connection_db.php' ; 
+
+                      $sql1 = "SELECT * FROM user inner join bill on user.uid = bill.uid and bill.status = '0' and bill.uid = '$name' GROUP BY bill.uid";
+                      $result1 = $conn->query($sql1);
+
+                      $sql2 = "SELECT * FROM paymethod inner join historybill inner join bill on paymethod.method = historybill.method and bill.bid = historybill.bid  where bill.uid = '$name' and bill.status = '0' GROUP BY historybill.method";
+                      $result2 = $conn->query($sql2);
+
+                      $sql = "SELECT bill.bid,product.pid,product.pname,SUM(quantity) quantity,Sum(quantity)*price price FROM product inner join bill on product.pid = bill.pid where bill.uid = '$name' and  bill.status = '0' GROUP BY pid";
                       $result = $conn->query($sql);
                       $sum = 0;
 
-                      echo "<h2>Detailed product information which you bought</h2>";
-                      echo '<center><input id="myInput" type="text" placeholder="Search..."></center>';
+                      // if($result) echo "true";
+                      // else echo "false";
+                      echo'<br>';
+                      echo '<table border="2" class="table table-striped">';
+                              echo "<tr>";
+                              echo"<th>Your Information</th>";
+                              echo"<th>Delivery Address</th>";
+                              echo "</tr>";
+                      echo "<tbody>";
+                              while($row = $result1->fetch_assoc()) {
+                                echo "<tr>";   
+                                echo '<td>'.$row["fullname"].'<br>'.$row["email"].'<br>'.$row["phone"].'</td>';       
+                                echo '<td>'.$row["address"].'</td>';
+                              }
+                      echo "</tbody>";   
 
                       echo '<table border="2" class="table table-striped">';
                               echo "<tr>";
+                              echo"<th>Your Bill's code</th>";
+                              echo"<th>Method Pay</th>";
+                              echo"<th>Fee</th>";
+                              echo "</tr>";
+                      echo "<tbody>";
+                              while($row = $result2->fetch_assoc()) {
+                                echo "<tr>";   
+                                echo '<td>'.$row["bid"].'</td>';       
+                                echo '<td>'.$row["method"].'</td>';
+                                echo '<td>'.$row["price"].' VND</td>';
+                              }
+                      echo "</tbody>";           
+                      
+                      echo "<h2>Detailed product information which you bought</h2>";
+                      echo '<center><input id="myInput" type="text" placeholder="Search..."></center>';
+                      echo '<table border="2" class="table table-striped">';
+                              echo "<tr>";
+                              echo "<th>Bill's Code</>";
                               echo"<th>Product Name</th>";
                               echo"<th>Quantity</th>";
                               echo"<th>Money</th>";
@@ -106,6 +157,7 @@ if (!isset($_SESSION['name'])) {
                               while ($row = $result->fetch_assoc()) {
                               $sum = $sum + $row["price"];
                                 echo "<tr>";   
+                                echo '<td>'.$row["bid"].'</td>'; 
                                 echo '<td>'.$row["pname"].'</td>';       
                                 echo '<td>'.$row["quantity"].'</td>';  
                                 echo '<td>'.$row["price"].' VND</td>';
@@ -126,36 +178,9 @@ if (!isset($_SESSION['name'])) {
             });
           });
       </script> 
-</div>
-
-<!--content-->
- <div class="col-sm-6">
-    
-              <?php   
-                    
-                      $sql = "SELECT * FROM user inner join bill on user.uid = bill.uid and bill.status = '0' and bill.uid = '$name'";
-                      $result = $conn->query($sql);
-                      // if($result) echo "true";
-                      // else echo "false";
-                      
-                      echo '<table border="2" class="table table-striped">';
-                              echo "<tr>";
-                              echo"<th>Your Information</th>";
-                              echo"<th>Delivery Address</th>";
-                              echo "</tr>";
-                      echo "<tbody>";
-                              while($row = $result->fetch_assoc()) {
-                                echo "<tr>";   
-                                echo '<td>'.$row["fullname"].'<br>'.$row["email"].'<br>'.$row["phone"].'</td>';       
-                                echo '<td>'.$row["address"].'</td>';
-                              }
-                      echo "</tbody>";
-
-            ?>
-   
   </div>
  </center>
-  
+</div>
 
 
 <!--Footer-->

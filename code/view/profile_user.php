@@ -53,7 +53,7 @@ if (!isset($_SESSION['name'])) {
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown"  href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $name;?><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-toggle" data-toggle="dropdown" href="profile_user.php"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
+            <li class ="active"><a class="dropdown-toggle" data-toggle="dropdown" href="profile_user.php"><span class="glyphicon glyphicon-user"></span>  Profile</a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>  logout</a></li>
           </ul>
           </li>
@@ -63,8 +63,13 @@ if (!isset($_SESSION['name'])) {
 	    <ul class="nav navbar-nav navbar-right">
         <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
+        <li><a href="bill.php"><span class=" glyphicon glyphicon-usd"></span> Bill</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="followbill.php"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

@@ -63,6 +63,11 @@ if (!isset($_SESSION['name'])) {
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="bill.php"><span class=" glyphicon glyphicon-usd"></span> Bill</a></li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
@@ -91,6 +96,7 @@ if (!isset($_SESSION['name'])) {
 
       <button type="submit" name="submit" class="btn btn-success" onclick="return confirm('Bạn đã chắc chắn')">Submit</button>
       </form>
+    <center><image src = "image/welcome/sugoi.gif"></image></center>
   </div>
   <!--Code php-->
   <center>
@@ -115,29 +121,7 @@ if (!isset($_SESSION['name'])) {
 
   <center>
     <?php                    
-            $sql = "SELECT product.pid,product.pname FROM product inner join favorite on product.pid = favorite.pid where favorite.uid = '$name'";
-            $result = $conn->query($sql);
-            // if($result) echo "true";
-            // else echo "false";
-            //$row = $result->fetch_assoc();
-            /* fetch associative array */
-            
-            echo "<h2>Your favorite Product</h2>";
-            echo '<input id="myInput" type="text" placeholder="Search...">';
-
-            echo '<table border="2" class="table table-striped">';
-                    echo "<tr>";
-                      echo"<th>Favorite ProductID</th>";
-                      echo"<th>Favorite Product</th>";
-                    echo "</tr>";
-            echo "<tbody id='myTable'>";
-                    while ($row = $result->fetch_assoc()) {
-                      echo "<tr>";    
-                      echo '<td>'.$row["pid"].'</td>';     
-                      echo '<td>'.$row["pname"].'</td>';  
-                      echo "</tr>";
-                    }
-                echo "</tbody>";
+           include 'model/display_favorite_product.php';
   ?>
 
   </center>  

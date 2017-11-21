@@ -17,6 +17,16 @@ if (!isset($_SESSION['name'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css"  href="css/css_form.css">
+  <style>
+    #div{
+                height:100%;
+                width:100%;
+                padding:1px;
+                border:1px solid white;
+                overflow-x:hidden;
+            }
+  </style>
+
 </head>
 
 <body >
@@ -37,50 +47,47 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <!--dropdown-->
-  	  <ul class="nav navbar-nav navbar-left">
+  	   <ul class="nav navbar-nav navbar-left">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-filter"></span> Product
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Gender      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
             <li><a href="#gender_girl"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for girl</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for boy</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for BD</a></li>
+            <li><a href="#gender_boy"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for boy</a></li>
           
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Year Old      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Baby</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Teen</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Older</a></li>
+            <li><a href="#year_baby"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Baby</a></li>
+            <li><a href="#year_teen"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Teen</a></li>
+            <li><a href="#year_older"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Older</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span>  Season     <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Spring</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Summer</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Autumn</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Winter</a></li>
+            <li><a href="#season_spring"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Spring</a></li>
+            <li><a href="#season_summer"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Summer</a></li>
+            <li><a href="#season_autumn"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Autumn</a></li>
+            <li><a href="#season_winter"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Winter</a></li>
 
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span>  Play     <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Beach</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Walking</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Festival</a></li>
+            <li><a href="#play_beach"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Beach</a></li>
+            <li><a href="#play_walking"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Walking</a></li>
+            <li><a href="#play_festival"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Festival</a></li>
 
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Working      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Office</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for School</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Multilevel</a></li>
+            <li><a href="#working_office"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Office</a></li>
+            <li><a href="#working_multillevel"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Multilevel</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Style      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Dress</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Shirt</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Jean</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Sexy</a></li>
+            <li><a href="#style_dress"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Dress</a></li>
+            <li><a href="#style_shirt"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Shirt</a></li>
+            <li><a href="#style_jean"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Jean</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Country      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for JaPan</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for China</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for India</a></li>
+            <li><a href="country_vietnam"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
+            <li><a href="#country_japan"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for JaPan</a></li>
+            <li><a href="#country_china"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for China</a></li>
+            <li><a href="#country_korea"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Korea</a></li>
 
         </ul>
       </li>
@@ -108,11 +115,11 @@ if (!isset($_SESSION['name'])) {
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="bill.php"><span class="glyphicon glyphicon-send"></span> Bill</a></li>
+        <li><a href="bill.php"><span class="glyphicon glyphicon-usd"></span> Bill</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
+        <li><a href="followbill.php"><span class="glyphicon glyphicon-send"></span> FollowBill</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -128,74 +135,26 @@ if (!isset($_SESSION['name'])) {
 </nav>
   
 <!--content-->
-<div class="container-fluid text-center" style="min-height:750px;">    
+<div  class="container-fluid text-center" style="max-height:100%;">    
   <div class="row content">
 <!---->
 
     <center>
-      <div id="condition1" class="col-sm-12 product1"> 
+      <div class="col-sm-12"> 
         <?php 
-        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
-        echo "<img width=40% height=40% src=\"image/welcome/Welcome3.gif\">" ;
-        echo "<img width=30% height=40% src=\"image/welcome/heart.gif\">";
+        include 'model/header.php';
         ?>
       </div> 
     </center>
+    <div id="div" class="col-sm-12"> 
     <div id="myTarget" class="col-sm-12"> 
     <?php 
     include 'model/connection_db.php';
-    $sql = "SELECT  * from product where style = 'girl'" ;
-    $result = $conn->query($sql);
-    $quantity = 0;
-    echo '<div> <h1 id="gender_girl">Fashion for Girl</h1></div>';
-            echo "<br>";
-    while ($row = $result->fetch_assoc()) {
-           
-            echo '<div id = "gender_girl_bg" class="col-sm-3">';
-            echo '<img width=90% height=90% src="image/gender/girl/'.$row["pid"].'.jpg"><br>';
-            echo 'Name : '.$row["pname"];
-              echo'<br>';
-            echo 'Style : '.$row["style"];
-              echo'<br>';
-            echo 'Size : '.$row["size"];
-              echo'<br>';
-            echo 'Made in : '.$row["source"];
-              echo'<br>';
-            echo 'Price : '.$row["price"].'VND';
-              echo'<br>';
-
-            echo '<form active="home_page_user.php" method = "POST">';
-            echo '<button type="submit" name="submit1'.$row["pid"].'"class="btn btn-red" ><span class="glyphicon glyphicon-heart"></span></button>';
-            echo '<button type="submit" name="submit2'.$row["pid"].'"class="btn btn-success" ><span class="glyphicon glyphicon-shopping-cart"></span></button>';
-            echo "<br>";
-            echo "<br>";
-            echo '</form>';
-                
-                if(isset($_POST['submit1'.$row["pid"]])){
-                    $pid = $row["pid"];
-                    $qr1 = "INSERT INTO favorite VALUES ('$name','$pid')";
-                    $result1 = mysqli_query($conn,$qr1);
-                  }
-
-                if(isset($_POST['submit2'.$row["pid"]])){
-                    $pid = $row["pid"];
-                    $sql1 = "SELECT  * from cart where pid = '$pid' and uid ='$name'";
-                    $result1 = $conn->query($sql1);
-                    $row1 = $result1->fetch_assoc();
-                    if ($row1 != 0) {
-                      $quantity = $row1['quantity'] + 1;
-                      $qr4 = "update cart set quantity = '$quantity' where pid = '$pid' and uid = '$name'";
-                      $result4 = mysqli_query($conn,$qr4);
-                    }else{
-                    $qr2 = "INSERT INTO cart VALUES ('$name','$pid','1')";
-                    $result2 = mysqli_query($conn,$qr2);    
-                    }
-                 }
-
-            echo '</div>';
-}
+    include 'model/display_product.php';  
+    
     ?>
-<script>
+
+    <script>
           $(document).ready(function(){
             $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
@@ -206,15 +165,16 @@ if (!isset($_SESSION['name'])) {
           });
     </script>
 </div>
+</div>
 <!---->
   </div>
 </div>
 
 <!--Footer-->
-<center>
+<!-- <center>
   <div class="footer"> 
-    <p>this is a footer</p>
+    <h5>Thăng Long sp<h5/>
   </div>
-</center>
+</center> -->
 </body>
 </html>
