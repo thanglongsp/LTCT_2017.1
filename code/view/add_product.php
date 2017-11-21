@@ -154,7 +154,7 @@ if (!isset($_SESSION['name'])) {
       
     
     //-- check null
-    include 'model/check_updateproduct_db.php';
+    include 'model/check_addproduct_db.php';
 
     }
   ?>
