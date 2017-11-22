@@ -104,7 +104,7 @@ if (!isset($_SESSION['name'])) {
                       $sql1 = "SELECT * FROM user inner join bill on user.uid = bill.uid and bill.status = '0' and bill.uid = '$name' GROUP BY bill.uid";
                       $result1 = $conn->query($sql1);
 
-                      $sql2 = "SELECT * FROM paymethod inner join historybill inner join bill on paymethod.method = historybill.method and bill.bid = historybill.bid  where bill.uid = '$name' and bill.status = '0' GROUP BY historybill.method";
+                      $sql2 = "SELECT * FROM paymethod inner join historybill inner join bill on paymethod.method = historybill.method and bill.bid = historybill.bid  where bill.uid = '$name' and bill.status = '0' GROUP BY bill.bid";
                       $result2 = $conn->query($sql2);
 
                       $sql = "SELECT bill.bid,product.pid,product.pname,SUM(quantity) quantity,Sum(quantity)*price price FROM product inner join bill on product.pid = bill.pid where bill.uid = '$name' and  bill.status = '0' GROUP BY pid";
@@ -141,8 +141,7 @@ if (!isset($_SESSION['name'])) {
                                 echo '<td>'.$row["price"].' VND</td>';
                               }
                       echo "</tbody>";           
-                      
-                      echo "<h2>Detailed product information which you bought</h2>";
+                       echo "<h1>Your bills</h1>";
                       echo '<center><input id="myInput" type="text" placeholder="Search..."></center>';
                       echo '<table border="2" class="table table-striped">';
                               echo "<tr>";

@@ -1,5 +1,5 @@
 <?php                    
-            $sql = "SELECT product.pid,product.pname FROM product inner join favorite on product.pid = favorite.pid where favorite.uid = '$name'";
+            $sql = "SELECT product.pid,product.pname FROM product inner join favorite on product.pid = favorite.pid where favorite.uid = '$name' group by product.pid";
             $result = $conn->query($sql);
             // if($result) echo "true";
             // else echo "false";

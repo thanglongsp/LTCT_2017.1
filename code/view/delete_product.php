@@ -112,18 +112,8 @@ if (!isset($_SESSION['name'])) {
 
         if(isset($_POST['submit'])){
           $pid = $_POST['pid'];
-          $pname = $_POST['pname'];
-          $style = $_POST['style'];
-          $size = $_POST['size'];
-          $source = $_POST['source'];
-          $number = $_POST['number'];
-          $price = $_POST['price'];
-          $dateinput = $_POST['dateinput'];
-      
-    
-    //-- check null
-    include 'model/check_updateproduct_db.php';
-
+        //-- check null
+        include 'model/check_delete_product.php';
     }
   ?>
 </center>

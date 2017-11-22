@@ -90,6 +90,11 @@ if (!isset($_SESSION['name'])) {
       </div>
 
       <div class="form-group">
+        <label for="birthday">Birth day?</label>
+        <input type="date" class="form-control" id="birthday"  name="birthday">
+      </div>
+
+      <div class="form-group">
          <label for="password">Pass word?</label>
          <input type="password" class="form-control" id="password" placeholder="strong: 8 character" name="password">
       </div>
@@ -138,7 +143,7 @@ if (!isset($_SESSION['name'])) {
         <?php                      
           //ket noi database
             include 'model/connection_db.php';
-            $sql = "SELECT  uid,fullname,address,phone,email,gender from user where uid = '$name'" ;
+            $sql = "SELECT  uid,fullname,address,phone,email,birthday,gender from user where uid = '$name'" ;
             $result = $conn->query($sql);
 
             /* fetch associative array */
@@ -146,6 +151,7 @@ if (!isset($_SESSION['name'])) {
                 $_SESSION['uid'] = $row["uid"];
                 $_SESSION['fullname'] = $row["fullname"];
                 $_SESSION['address'] = $row["address"];
+                $_SESSION['birthday'] = $row["birthday"];
                 $_SESSION['phone'] = $row["phone"];
                 $_SESSION['email'] = $row["email"];
                 $_SESSION['gender'] = $row["gender"];
@@ -155,6 +161,7 @@ if (!isset($_SESSION['name'])) {
               <ul class="ul1">
               <li class="li1">User name:    <?php echo $_SESSION['uid'];?></li>
               <li class="li1">Full name:    <?php echo $_SESSION['fullname']; ?></li>
+              <li class="li1">Birth day:    <?php echo $_SESSION['birthday']; ?></li>
               <li class="li1">Address:      <?php echo $_SESSION['address'];?></li>
               <li class="li1">Phone number: <?php echo $_SESSION['phone'];?></li>
               <li class="li1">Email:        <?php echo $_SESSION['email']; ?></li>

@@ -7,6 +7,7 @@ if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $gender = $_POST['gender'];
+        $birthday = $_POST['birthday'];
 
         //-- check null
 
@@ -54,6 +55,14 @@ if(isset($_POST['submit'])){
             $qr6 = "update user set gender = '$gender' where UID = '$name'" ;
             $result6 = mysqli_query($conn,$qr6);
             if($result6){
+            echo "Updated !";
+            }
+          }
+
+            if($birthday != null){
+            $qr7 = "update user set birthday = '$birthday' where UID = '$name'" ;
+            $result7 = mysqli_query($conn,$qr7);
+            if($result7){
             echo "Updated !";
             }
           }
