@@ -40,6 +40,7 @@ if (!isset($_SESSION['name'])) {
         <span class="icon-bar"></span>                        
       </button>
     </div>
+    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active" ><a href="home_page_admin.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>

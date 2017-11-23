@@ -127,10 +127,6 @@ if(isset($_POST['submit'])){
         echo "Please! puting every fields.";
       }
 ?>
-
-<div class="footer">
-  <p>this is a footer</p>
-</div>
 </center>
 
 </body>

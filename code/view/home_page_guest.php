@@ -44,8 +44,8 @@
       </button>
     </div>
   <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+    <ul class="nav navbar-nav navbar-center">
+      <li class = "active"><a href="#"><span class="glyphicon glyphicon-heart"></span>  Welcome to DRAGON SHOP !  <span class="glyphicon glyphicon-heart"></span></a></li>
     </ul>
 
     <!--dropdown-->
@@ -86,7 +86,7 @@
             <li><a href="#style_jean"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Jean</a></li>
 
           <li class="disable"><span class="glyphicon glyphicon-hand-right"></span> Country      <span class ="glyphicon glyphicon-menu-down"></span></a></li>
-            <li><a href="country_vietnam"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
+            <li><a href="#country_vietnam"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Viet Nam</a></li>
             <li><a href="#country_japan"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for JaPan</a></li>
             <li><a href="#country_china"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for China</a></li>
             <li><a href="#country_korea"><span class="glyphicon glyphicon-hand-right"></span>  Fashion for Korea</a></li>
@@ -101,13 +101,15 @@
           <input id = "myInput"type="text" class="form-control" placeholder="You can search every one If we have it hear ... ">
       </div>
     </form>
+    
+
 	  <ul class="nav navbar-nav navbar-right">
       <li><a href="sign_up.php"><span class="glyphicon glyphicon-log-in"></span> Signup</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
-
+     
     </div>
   </div>
 </nav>

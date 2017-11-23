@@ -42,9 +42,9 @@ if (!isset($_SESSION['name'])) {
       </button>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active" ><a href="home_page_user.php"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-      </ul>
+      <ul class="nav navbar-nav navbar-center">
+      <li class = "active"><a href="home_page_user.php"><span class="glyphicon glyphicon-heart"></span>  Welcome to DRAGON SHOP !  <span class="glyphicon glyphicon-heart"></span></a></li>
+    </ul>
 
       <!--dropdown-->
   	   <ul class="nav navbar-nav navbar-left">
