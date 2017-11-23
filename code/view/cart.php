@@ -102,7 +102,7 @@ if (!isset($_SESSION['name'])) {
       </form>
 
       <!--Form fix order-->
-      <center><p><b>You don't fix product'quantity ? </b></p></center>
+      <center><p><b>You want to fix product'quantity ? </b></p></center>
       <form action="cart.php" method="GET">
 
       <div class="form-group">
